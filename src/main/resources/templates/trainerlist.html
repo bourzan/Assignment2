@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>Trainers</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link th:href="@{style.css}" rel="stylesheet">
+    </head>
+    <body>
+        <div>
+            <h1>The Trainer List</h1>
+        </div>
+        <div>
+            <a th:href="@{/trainers/add/}" class="buttonfakebig buttonred">Add new Trainer</a>
+        </div>
+        <br>
+        <div>
+            <table id="fancytb">
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Subject</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr th:each="t: ${alltrainers}">
+                    <td th:text="${t.trainerid}"></td>
+                    <td th:text="${t.firstname}"></td>
+                    <td th:text="${t.lastname}"></td>
+                    <td th:text="${t.subject}"></td>
+                    <td><a th:href="@{/trainers/update/{id}(id=${t.trainerid})}" class="buttonfake buttongreen">Update</a></td>
+                    <td><a th:href="@{/trainers/delete/{id}(id=${t.trainerid})}" class="buttonfake buttonblue">Delete</a></td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>Add Trainer</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link th:href="@{/style.css}" rel="stylesheet">
+    </head>
+    <body>
+        <div>
+            <h1>Add new Trainer</h1>
+        </div>
+        <div>
+            <form th:action="@{/trainers/doadd}" th:object="${newtrainer}" method="post">
+                <div>
+                    First Name <input type="text" th:field="*{firstname}"/>
+                </div>
+                <div>
+                    Last Name <input type="text" th:field="*{lastname}"/>
+                </div>
+                <div>
+                    Subject <select th:field="*{subject}">
+                        <option value="java">Java</option>
+                        <option value="c#">C#</option>
+                        <option value="python">Python</option>
+                    </select>
+                </div>
+                <input type="submit" value="Submit Trainer" class="buttonfake buttongrey"/>
+                <a th:href="@{/trainers}" class="buttonfake buttongrey">Cancel</a>
+            </form>
+        </div>
+    </body>
+</html>
